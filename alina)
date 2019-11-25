@@ -1,0 +1,40 @@
+#include <iostream> 
+#include <cmath> 
+
+using namespace std; 
+int ** creat(int &n) 
+{ 
+cout << "n = "; cin >> n; 
+int **mas = new int *[n]; 
+for (int i = 0; i < n; ++i) 
+	mas[i] = new int[n]; 
+for (int i = 0; i < n; ++i) 
+	for (int j = 0; j < n; ++j) 
+	{ 
+		cout << "mas[" << i << "][" << j << "] = "; 
+		cin >> mas[i][j]; 
+	} 
+return mas; 
+} 
+int main() 
+{ 
+int n;  
+int **a = creat(n); 
+int *b = new int [n]; 
+for (int i = 0; i < n; ++i) 
+    {
+	cout << "b[" << i << "]="; 
+	cin >> b[i]; 
+	}
+for (int i = 0; i < n; ++i, cout << endl)
+	for (int j = 0; j < n; ++j)
+		cout << a[i][j] << '\t';
+cout << "----------------------------" << endl;
+for (int i = 1; i < n; i += 2)
+	for (int j = 0; j < n; ++j) 
+		a[i][j] = b[j]; 
+for (int i = 0; i < n; ++i, cout << endl) 
+	for (int j = 0; j < n; ++j) 
+			cout << a[i][j] << "\t"; 
+return 0; 
+}
